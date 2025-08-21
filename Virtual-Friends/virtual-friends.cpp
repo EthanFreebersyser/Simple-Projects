@@ -21,7 +21,7 @@ struct UnionFind{
 	}
 
 	int findLeader(int x){
-		if (root[x] = x) return x;
+		if (root[x] == x) return x;
 		//Compression!
 		return root[x] = findLeader(root[x]);
 	}
