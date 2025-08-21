@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -15,20 +16,30 @@ int main(){
 	string s;
 	cin >> s;
 
-	int numOfSteps;
-	
-	int l = -1;
-	int v = -1;
+	vector<int> lloc(numOfChars);
+	fill(lloc.begin(), lloc.end(), -1);
+	vector<int> vloc(numOfChars);
+	fill(vloc.begin(), vloc.end(), -1);
+
 	for  (int i = 0; i < numOfChars; i ++){
-		if (s[i] == 'l') l = i;
-		if (s[i] == 'v') v = i;
+		if (s[i] == 'l') lloc.push_back(i);
+		if (s[i] == 'v') vloc.push_back(i);
 	}
 
-	if (l + v == 0) numOfSteps = 2;
-	if (l + 1 == v) numOfSteps = 0;
+	int numOfSteps= 3;
+	int tempSteps = 3;
+	for (int l: lloc){
+		for (int v: vloc){
+			if (l + v == 0) tempSteps = 2;
+			
+			if (l == -1 || v == -1) tempSteps = 1;
+			if (v < l || l + 1 < v) tempSteps = 1;
 
-	if (l == -1 || v == -1) numOfSteps = 1;
-	if (v < l || l + 1 < v) numOfSteps = 1;
+			if (l + 1 == v) tempSteps = 0;
+			
 
+			if(tempSteps < numOfSteps) numOfSteps = tempSteps;
+		}
+	}
 	cout << numOfSteps;
 }
