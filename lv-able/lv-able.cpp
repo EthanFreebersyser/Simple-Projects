@@ -5,7 +5,7 @@
 using namespace std;
 
 /* Author: Ethan Freebersyser
- * Date: 8/20/2025
+ * Date: 8/21/2025
  * This is a solution to the kattis problem "lv-able", https://open.kattis.com/problems/lvable
  */
 
