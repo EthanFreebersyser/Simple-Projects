@@ -45,4 +45,5 @@ int main(){
         for (int loc: errorLoc) cout << finalLines.at(loc - 1) << "\n";
         
         return 0;
+
 }
